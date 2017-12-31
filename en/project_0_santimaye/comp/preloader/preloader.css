@@ -1,0 +1,27 @@
+.preloader {
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	
+	width: 100%;
+	height: 100%;
+}
+
+.preloader h1 {
+	font-family: font-regular;
+	font-size: 100px;
+	
+	text-align: center;
+	resize: vertical;
+	overflow: auto;
+	
+	position: relative;
+	top: -25px;
+}
+
+main{
+	display: none;
+}
+
+

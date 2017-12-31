@@ -1,0 +1,251 @@
+ .Collage-FullSize {
+
+     width: 100%;
+     height: 100%;
+
+     background-repeat: no-repeat;
+     background-size: contain;
+
+
+
+ }
+
+ .Collage-Space {
+     width: 100%;
+     height: 0px;
+     display: block;
+
+     -webkit-transition: all 0.25s;
+     /* Safari */
+     transition: all 0.25s;
+ }
+
+ .Collage-Contain {
+     display: block;
+     width: 100%;
+     height: 100%;
+
+ }
+
+ .Collage-Item {
+
+     cursor: pointer;
+
+     display: flex;
+     align-items: center;
+     justify-content: center;
+
+     overflow: hidden;
+ }
+
+ .Collage-Item:hover {}
+
+ .Collage-Layer {
+     width: 100%;
+     height: 100%;
+     /*border: 5px solid rgba(1,1,1,0);*/
+     -webkit-transition: all 0.5s;
+     /* Safari */
+     transition: all 0.5s;
+ }
+
+ .Collage-Layer:hover {
+     width: 100%;
+     height: 100%;
+
+     background-color: rgba(0, 0, 0, 0.0);
+     /*border: 5px solid rgba(255,255,255,9);*/
+ }
+
+ .Full {
+     width: 80%;
+     height: 80%;
+
+     display: none;
+ }
+
+ .Thumb {
+  display: none;
+     width: 25%;
+     height: 33.3333%;
+     float: left;
+	 position: relative;
+	 
+	-webkit-transition: all 0.25s ease-in-out;
+	-moz-transition: all 0.25s ease-in-out;
+	-ms-transition: all 0.25s ease-in-out;
+	-o-transition: all 0.25s ease-in-out;
+	transition: all 0.25s ease-in-out;
+ }
+
+ .Thumb .Collage-Img {
+     width: 100%;
+     height: 100%;
+     background-repeat: no-repeat;
+     background-size: cover;
+     -webkit-transition: all 0.5s;
+     /* Safari */
+     transition: all 0.5s;
+ }
+
+ .Full .Collage-Img {
+     width: 100%;
+     height: 100%;
+     background-repeat: no-repeat;
+     background-size: cover;
+ }
+
+ .Thumb .Collage-Img:hover {
+     transform: scale(1.1);
+ }
+
+
+
+
+
+
+ .Collage-FullSizePic {
+
+     width: 100%;
+     height: 100%;
+
+ }
+
+ .FullCollage {
+
+     width: 80%;
+     height: 80%;
+     overflow: hidden;
+ }
+
+ .FullCollage-Img {
+     width: 100%;
+     height: 100%;
+     background-repeat: no-repeat;
+     background-size: cover;
+ }
+
+ .Collage-Full-Layer {
+     background-color: rgba(1, 1, 1, 0.9);
+     width: 100%;
+     height: 100%;
+ }
+
+
+	.Modal {
+			position: fixed;
+			/* Stay in place */
+			z-index: 100;
+			/* Sit on top */
+			left: 0;
+			top: 0;
+			width: 100%;
+			/* Full width */
+			height: 100%;
+			/* Full height */
+			overflow: auto;
+			/* Enable scroll if needed */
+			background-color: rgb(0, 0, 0);
+			/* Fallback color */
+			background-color: rgba(0, 0, 0, 0.95);
+			/* Black w/ opacity */
+		
+		display: none;
+		}
+
+		.Modal .flex-wrapper {
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			width: 100%;
+			height: 100%;
+
+
+		}
+
+
+		.Modal .img-wrapper img {
+			width: 500px;
+			float: left;
+		}
+
+		.modal-close {
+			color: black;
+			font-size: 50px;
+			align-self: flex-start;
+			position: relative;
+			top: -25px;
+			left: -25px;
+			float: right;
+			background-color: white;
+			border-radius: 2px;
+			padding: 5px;
+			width: 40px;
+			height: 40px;
+			z-index: 1000;
+
+		}
+
+		.modal-close i {
+			position: relative;
+			TOP: -11px;
+			cursor: pointer;
+		}
+
+		.modal-buttons {
+			display: inline-block;
+			width: 120px;
+			margin: 0 auto;
+		}
+
+		.modal-next {
+			width: 40px;
+			height: 40px;
+			background-color: white;
+			color: black;
+			float: left;
+			cursor: pointer;
+
+
+		}
+
+		.modal-prev i {
+			font-size: 22px;
+			float: left;
+			padding-left: 10px;
+			margin-top: 5px;
+			margin-bottom: 5px;
+			border: 0px solid black;
+			border-left-width: 2px;
+			margin-top: 10px;
+
+
+		}
+
+		.modal-next i {
+			font-size: 22px;
+			float: right;
+			padding-right: 10px;
+			margin-top: 5px;
+			margin-bottom: 5px;
+			margin-top: 10px;
+
+
+
+		}
+
+		.modal-prev {
+			width: 40px;
+			height: 40px;
+			background-color: white;
+			color: black;
+			float: left;
+			cursor: pointer;
+
+		}
+
+		.siema img {
+			width: 100%;
+		}

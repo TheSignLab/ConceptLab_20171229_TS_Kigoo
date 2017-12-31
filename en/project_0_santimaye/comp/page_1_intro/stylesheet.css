@@ -1,0 +1,108 @@
+#myVideo {
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    background-size: 100% 100%;
+    background-color: black;
+    background-image: /* our video */
+    ;
+    background-position: center center;
+    background-size: contain;
+    object-fit: cover;
+    z-index: 3;
+}
+
+
+.Intro-Bg-FullSize {
+    /*background-image: url(../../comp/page_1_intro/ezgif-5-685559b015.gif);*/
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center bottom;
+}
+
+.Layer {
+    background-color: rgba(0, 0, 0, 0.99);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+
+}
+
+.Intro-Bg-FullSize .Layer .title {
+    font-family: font-black;
+    color: white;
+    font-size: 100px;
+    text-align: center;
+
+    z-index: 10;
+    margin: 0 auto;
+    text-transform: uppercase;
+
+    position: relative;
+    left: -5000px;
+
+    transition-timing-function: cubic-bezier(.64, .48, .13, 1.83);
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1.27s ease-in-out;
+    -ms-transition: all 1.27s ease-in-out;
+    -o-transition: all 1.27s ease-in-out;
+    transition: all 1.27s ease-in-out;
+
+}
+
+.Intro-Bg-FullSize .Layer .subtitle {
+    font-family: font-light;
+    color: white;
+    font-size: 60px;
+    text-align: center;
+    align-self: center;
+    z-index: 10;
+    margin: 0 auto;
+    text-transform: uppercase;
+
+    position: relative;
+    left: 8000px;
+
+    transition-timing-function: cubic-bezier(.64, .48, .13, 1.83);
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1.27s ease-in-out;
+    -ms-transition: all 1.27s ease-in-out;
+    -o-transition: all 1.27s ease-in-out;
+    transition: all 1.27s ease-in-out;
+}
+
+.Intro-Bg-FullSize .Layer p {
+    font-family: font-light;
+    color: white;
+    font-size: 20px;
+    width: 900px;
+    margin: 0 auto;
+    z-index: 10;
+    position: relative;
+    left: 8000px;
+
+    transition-timing-function: cubic-bezier(.64, .48, .13, 1.83);
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1.27s ease-in-out;
+    -ms-transition: all 1.27s ease-in-out;
+    -o-transition: all 1.27s ease-in-out;
+    transition: all 1.27s ease-in-out;
+}

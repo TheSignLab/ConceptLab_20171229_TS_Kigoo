@@ -1,0 +1,106 @@
+.Description-FullSize {}
+
+.Description-Left {
+	overflow: hidden;
+	width: 50%;
+	height: 100vh;
+	float: left;
+	background-size: cover;
+
+	-webkit-transition: all 1.5s ease-in-out;
+	-moz-transition: all 1.5s ease-in-out;
+	-ms-transition: all 1.5s ease-in-out;
+	-o-transition: all 1.5s ease-in-out;
+	transition: all 1.5s ease-in-out;
+}
+
+
+
+.Description-Right {
+	overflow: hidden;
+	width: 50vw;
+	height: 100vh;
+	float: left;
+}
+
+
+.Description-Right .titles {
+	width: 500px;
+	margin: 0 auto;
+    
+    position: relative;
+    left: 5000px;
+
+	padding-top: 150px;
+    
+    	-webkit-transition: all 1.05s ease-in-out;
+	-moz-transition: all 1.05s ease-in-out;
+	-ms-transition: all 1.05s ease-in-out;
+	-o-transition: all 1.05s ease-in-out;
+	transition: all 1.05s ease-in-out;
+
+}
+
+.Description-Right .titles .title {
+	font-family: font-light;
+	font-size: 50px;
+	text-align: left;
+
+}
+
+.Description-Right .content {
+
+	margin: 0 auto;
+
+	font-family: font-light;
+	font-size: 17px;
+	width: 400px;
+    
+
+}
+
+.Description-Right .content p {
+	text-align: justify;
+	text-justify: inter-word;
+    
+         position: relative;
+    top: 1000px;
+    
+    	-webkit-transition: all 1.05s ease-in-out;
+	-moz-transition: all 1.05s ease-in-out;
+	-ms-transition: all 1.05s ease-in-out;
+	-o-transition: all 1.05s ease-in-out;
+	transition: all 1.05s ease-in-out;
+}
+
+.Description-Right .content ul {
+	list-style-type: none;
+	padding: 0px;
+}
+
+.Description-Right .content li {
+    display: none;
+	float: left;
+	width: 50px;
+	height: 100px;
+	margin: 15px;
+
+}
+
+.Description-Right .content li:first-child {
+	float: left;
+	width: 50px;
+	height: 100px;
+	margin: 15px;
+	margin-left: 0px;
+}
+
+.Description-Right .content li .color-box {
+	width: 50px;
+	height: 50px;
+}
+
+.Description-Right .content li .text-box {
+	text-align: right;
+	font-size: 15px;
+}

@@ -1,0 +1,9 @@
+.Ending-Bg-FullSize{
+    background-color: antiquewhite;
+    background-image: url(bg3.jpg);
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+}

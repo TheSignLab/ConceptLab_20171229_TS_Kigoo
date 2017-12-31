@@ -1,0 +1,22 @@
+ <div class="flex-wrapper">
+
+            <center>
+
+                <div class="modal-close"><i class="fa fa-times" aria-hidden="true"></i></div>
+
+                <div class="slider-wrapper">
+                    <div class="slider">
+                        <img src="comp/page_3_collage/img/fullsize-0.jpeg">
+                        <img src="comp/page_3_collage/img/fullsize-1.jpeg">
+                    </div>
+                </div>
+
+                <center style="position: relative;top: -25px;">
+                    <div class="modal-buttons">
+                        <div class="modal-next"> <i class="fa fa-chevron-left" aria-hidden="true" style="    float: right;"></i> </div>
+                        <div class="modal-prev"><i class="fa fa-chevron-right" aria-hidden="true" style="    float: left;"></i> </div>
+                    </div>
+                </center>
+            </center>
+
+        </div>

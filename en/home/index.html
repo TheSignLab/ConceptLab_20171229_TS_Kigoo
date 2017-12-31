@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+
+
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="description" content="Homepage">
+    <meta name="author" content="TheSignLab">
+    <title>TheSignLab Homepage</title>
+
+    <link rel="stylesheet" type="text/css" href="../home/lib/fullPage.js-master/dist/jquery.fullpage.css" />
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="../home/lib/fullPage.js-master/vendors/jquery.easings.min.js"></script>
+    <script type="text/javascript" src="../home/lib/fullPage.js-master/vendors/scrolloverflow.min.js"></script>
+    <script type="text/javascript" src="../home/lib/fullPage.js-master/dist/jquery.fullpage.min.js"></script>
+    <script type="text/javascript" src="../home/lib/fullPage.js-master/dist/jquery.fullpage.extensions.min.js"></script>
+
+    <script type="text/javascript" src="../home/lib/typed.js-master/lib/typed.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vivus@latest/dist/vivus.min.js"></script>
+    <script type="text/javascript" src="../home/lib/jquery-drawsvg-master/src/jquery.drawsvg.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+
+
+    <link rel="stylesheet" href="../home/comp/main/main.css">
+
+
+
+
+    <link rel="stylesheet" href="../home/comp/preloader/preloader.css">
+    <script type="text/javascript" src="../home/comp/preloader/preloader.js"></script>
+
+    <link rel="stylesheet" href="../home/comp/page_1_video/stylesheet.css">
+    <script type="text/javascript" src="../home/comp/page_1_video/app.js"></script>
+
+    <link rel="stylesheet" href="../home/comp/page_2_menu/stylesheet.css">
+    <script type="text/javascript" src="../home/comp/page_2_menu/app.js"></script>
+
+
+
+
+
+
+    <!--  Google Analytics  -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109838340-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-109838340-1');
+    </script>
+    <!-- \Google Analytics  -->
+
+
+</head>
+
+
+
+
+<body>
+
+
+
+    <nav> </nav>
+
+
+    <div class="preloader">
+        <h1>thes:gn</h1>
+    </div>
+
+
+
+
+    <main>
+
+
+
+        <!-- PullPage Section ::  Video -->
+        <section class="bg-black" id="id_section_video">
+
+            <video loop muted controls="false" data-autoplay class="intro-video">
+                <source src="comp/page_1_video/intro.mp4" type="video/mp4">
+                <source src="comp/page_1_video/intro.ogg" type="video/ogg">
+            </video>
+
+        </section>
+        <!-- \PullPage Section ::  Video -->
+
+
+
+        <!-- PullPage Section ::  Menu -->
+        <section class="bg-black">
+            
+            <style>
+            
+            
+            </style>
+
+            <ul class="menu-ul">
+
+                <li class="menu-li mls">
+                    <span class="f-light">CONCEPT</span>
+                    <span class="f-bold">LAB</span>
+                </li>
+
+               <li class="menu-li mls">
+                    <span class="f-light">CREATIVE</span>
+                    <span class="f-bold">LAB</span>
+                </li>
+
+                <li class="menu-li mls">
+                    <span class="f-light">BLOG+</span>
+                    <span class="f-bold">MAGAZINE</span>
+                </li>
+                <li class="menu-li mll">
+                    <span class="f-light">ACA</span>
+                    <span class="f-bold">DEMY</span>
+                </li>
+               <li class="menu-li mll">
+                    <span class="f-light">VEN</span>
+                    <span class="f-bold">TURES</span>
+                </li>
+                <li class="menu-li mll">
+                    <span class="f-light">STU</span>
+                    <span class="f-bold">DIO</span>
+                </li>
+
+
+            </ul>
+
+
+        </section>
+        <!-- \PullPage Section ::  Menu -->
+
+
+
+
+
+        <section class="bg-white">
+            <h1 style="color:black">PHILOSOPHY</h1>
+        </section>
+
+        <section class="bg-black">
+            <h1 style="color:white">TEAM</h1>
+        </section>
+
+        <section class="bg-white">
+            <h1 style="color:black">TEAM 2</h1>
+        </section>
+
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+
+            $('main').fullpage({
+                sectionSelector: 'section'
+            });
+
+        });
+    </script>
+
+</body>
+
+
+
+
+</html>
