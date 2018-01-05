@@ -2,10 +2,11 @@
 	color: white;
 	text-align: center;
 	width: 100vw;
-	height: 100vh;
+	height: 100vh; 
 }
 
-.team-title {
+.team-title {  
+	
 	font-size: 25pt; 
 	padding: 20px;
 	padding-top: 100px;
