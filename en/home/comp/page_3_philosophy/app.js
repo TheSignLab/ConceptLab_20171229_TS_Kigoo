@@ -1,0 +1,351 @@
+/*---------------------------------------------------------------- */
+/*  CONTROLADOR PARA LA INTERACCIÓN DE THEPHILOSOPHY               */
+/*	                                                               */
+/*	Author: Jorge Luis Mayorga
+/*
+/*---------------------------------------------------------------- */
+
+
+
+/*---------------------------------------------------------------- */
+/*----    Variables y Constantes   ------------------------------- */
+/*---------------------------------------------------------------- */
+
+// Llave que nos indica si se puede o no cambiar de pestaña
+var key_switch_philosophyTabs = false;
+
+// Registro que nos indica si ya ha sido corrido por primera vez la animación inicial
+var reg_init_philosophyAnimation = false;
+
+// Objeto para controlar las funciones del efecto Type.JS
+var obj_typed;
+
+var TimerKey1 = 1200;
+
+var reg_switch_philosophyTabs = "BRAND STRATEGY";
+
+/*---------------------------------------------------------------- */
+
+
+
+
+
+
+/*---------------------------------------------------------------- */
+/*----    Animación Inicial   ------------------------------------ */
+/*---------------------------------------------------------------- */
+function run_animation_philosophy() {
+	var k = 0;
+	$($(".philosophy-menu-wrapper ul li").get()).each(function () {
+		$(this).delay(k * 500).animate({
+			opacity: 1.0,
+			left: "0px"
+		});
+		k = k + 1;
+	});
+	run_animation_philosophy_stage2();
+}
+
+function run_animation_philosophy_stage2() {
+	setTimeout(function () {
+		// Segunda Parte de la animación
+		if (reg_init_philosophyAnimation == false) {
+			obj_typed = new Typed('#Philosphy-Title', {
+				strings: ["<i> </i>", "<span class='f-light'>THE WAY WE</span><span class='f-bold'> PERCEIVE REALITY</span>"],
+				typeSpeed: 30,
+				showCursor: false,
+				onComplete: function (self) {
+					run_animation_philosophy_stage3();
+				},
+			});
+		}
+		reg_init_philosophyAnimation = true;
+		setTimeout(function () {
+			$(".philosophy-bg-img-wrapper").animate({
+				opacity: "1",
+			}, 1500);
+		}, 500)
+	}, 2000);
+}
+
+function run_animation_philosophy_stage3() {
+	$(".philosophy-seemore").animate({
+		width: "0px",
+		height: "30px",
+		marginTop: '0px'
+	}, 500, function () {
+		$(".philosophy-seemore").animate({
+			width: "100px",
+		}, 500, function () {
+			$(".philosophy-seemore .f-light").fadeIn();
+			$(".philosophy-seemore .f-bold").fadeIn();
+			key_switch_philosophyTabs = true;
+		})
+	})
+}
+/*---------------------------------------------------------------- */
+
+
+/*---------------------------------------------------------------- */
+/*----    UpdateTab  --------------------------------------------- */
+/*---------------------------------------------------------------- */
+function updateTabMethod(targetTab, current_tab, prev_tab, content_p_str, typed_str) {
+	key_switch_philosophyTabs = false;
+	reg_switch_philosophyTabs = current_tab;
+
+	$(".pmw-active").removeClass("pmw-active");
+	$("." + ts_bg_c).removeClass(ts_bg_c);
+
+	targetTab.addClass("pmw-active");
+	targetTab.addClass(ts_bg_c);
+
+
+	var content_p = $(".philosophy-seemore-content p");
+	content_p.text(content_p_str);
+
+	obj_typed.stop();
+	obj_typed = new Typed('#Philosphy-Title', {
+		strings: typed_str,
+		typeSpeed: 30,
+		showCursor: false
+	});
+
+	nFrom = numberTabByText(prev_tab);
+	nTo = numberTabByText(current_tab);
+
+	handler_philosophy_tooglebg(nFrom, nTo);
+
+
+
+	setTimeout(function () {
+		key_switch_philosophyTabs = true;
+	}, TimerKey1);
+}
+/*---------------------------------------------------------------- */
+
+
+
+
+
+/*---------------------------------------------------------------- */
+/*----    Cambio de Pestaña   ------------------------------------ */
+/*---------------------------------------------------------------- */
+
+
+$(document).ready(function () {
+
+	// Evento Mouseover en pestaña
+
+	$(".philosophy-menu-wrapper ul li").mouseover(function () {
+		handler_philosophy_mouseover($(this));
+	});
+
+	// Ocultar todos los fondos: imagens  y video.
+
+	$(".philosophy-bg-img-wrapper img").fadeOut();
+	$(".philosophy-bg-img-wrapper .video-shadow video").fadeOut();
+
+	$("#philo-img-id-1").fadeIn();
+	$("#philo-vid-id-1").fadeIn();
+
+
+});
+
+
+function handler_philosophy_tooglebg(n_from, n_to) {
+
+	var str_from_img = "#philo-img-id-" + n_from;
+	var str_to_img = "#philo-img-id-" + n_to;
+	var str_from_vid = "#philo-vid-id-" + n_from;
+	var str_to_vid = "#philo-vid-id-" + n_to;
+
+	var obj_from_img = $(str_from_img);
+	var obj_to_img = $(str_to_img);
+
+	var obj_from_vid = $(str_from_vid);
+	var obj_to_vid = $(str_to_vid);
+
+
+
+	obj_from_img.fadeOut("slow");
+	obj_from_vid.fadeOut("slow");
+	
+	obj_to_vid.fadeIn("slow");
+	obj_to_img.fadeIn("slow");
+
+	console.log(str_to_img);
+
+
+}
+
+function numberTabByText(a) {
+	var p = 0;
+	if (a == "BRAND STRATEGY") {
+		p = 1;
+	}
+	if (a == "DESIGN EXPERIENCE") {
+		p = 2;
+	}
+	if (a == "DESIGN CONSULTANCY") {
+		p = 3;
+	}
+	if (a == "IDEA PROTOTYPING") {
+		p = 4;
+	}
+	if (a == "CREATIVE CONCEPT") {
+		p = 5;
+	}
+	return p
+}
+
+function handler_philosophy_mouseover(targetTab) {
+
+	var current_tab = targetTab.text();
+	var prev_tab = reg_switch_philosophyTabs;
+
+	var isUnlock = key_switch_philosophyTabs;
+	var isTargetTab1 = (current_tab == "BRAND STRATEGY" && current_tab != reg_switch_philosophyTabs);
+	var isTargetTab2 = (current_tab == "DESIGN EXPERIENCE" && current_tab != reg_switch_philosophyTabs);
+	var isTargetTab3 = (current_tab == "DESIGN CONSULTANCY" && current_tab != reg_switch_philosophyTabs);
+	var isTargetTab4 = (current_tab == "IDEA PROTOTYPING" && current_tab != reg_switch_philosophyTabs);
+	var isTargetTab5 = (current_tab == "CREATIVE CONCEPT" && current_tab != reg_switch_philosophyTabs);
+
+	var nFrom = 0;
+	var nTo = 0;
+	if (isTargetTab1) {
+		var typed_str = ["<i></i>",
+					 "<span class='f-light'>THE WAY WE</span><span class='f-bold'> PERCEIVE REALITY</span>"];
+		var content_p_str = "We design brands that impact not only in their costumers but challenges the market standards with new values.";
+		var nChild = 0;
+		updateTabMethod(targetTab, current_tab, prev_tab, content_p_str, typed_str, nChild);
+	}
+	if (isTargetTab2) {
+		var typed_str = ["<i></i>",
+					 "<span class='f-light'>THE WAY WE 2</span><span class='f-bold'> PERCEIVE REALITY</span>"];
+		var content_p_str = " 22 We design brands that impact not only in their costumers but challenges the market standards with new values.";
+		var nChild = 1;
+		updateTabMethod(targetTab, current_tab, prev_tab, content_p_str, typed_str, nChild);
+	}
+	if (isTargetTab3) {
+		var typed_str = ["<i></i>",
+					 "<span class='f-light'>THE WAY WE 2</span><span class='f-bold'> PERCEIVE REALITY</span>"];
+		var content_p_str = " 22 We design brands that impact not only in their costumers but challenges the market standards with new values.";
+		var nChild = 2;
+		updateTabMethod(targetTab, current_tab, prev_tab, content_p_str, typed_str, nChild);
+	}
+	if (isTargetTab4) {
+		var typed_str = ["<i></i>",
+					 "<span class='f-light'>THE WAY WE 2</span><span class='f-bold'> PERCEIVE REALITY</span>"];
+		var content_p_str = " 22 We design brands that impact not only in their costumers but challenges the market standards with new values.";
+		var nChild = 3;
+		updateTabMethod(targetTab, current_tab, prev_tab, content_p_str, typed_str, nChild);
+	}
+	if (isTargetTab5) {
+		var typed_str = ["<i></i>",
+					 "<span class='f-light'>THE WAY WE 2</span><span class='f-bold'> PERCEIVE REALITY</span>"];
+		var content_p_str = " 22 We design brands that impact not only in their costumers but challenges the market standards with new values.";
+		var nChild = 4;
+		updateTabMethod(targetTab, current_tab, prev_tab, content_p_str, typed_str, nChild);
+	}
+
+
+}
+/*---------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+// ---------------------------------------------- //
+// Play and Pause Handler                         //
+// ---------------------------------------------- //
+
+$(document).ready(function () {
+
+	var seemore_flag = "Open";
+	var seemore_autoplay;
+
+	$(".philosophy-seemore").click(function () {
+
+		var wrapper_obj = $(".philosophy-seemore-content");
+		var p_obj = $(".philosophy-seemore-content p");
+		var ul_obj = $(".philosophy-seemore-content ul");
+		var see_label = $(".philosophy-seemore .f-light");
+		var more_label = $(".philosophy-seemore .f-bold");
+
+		var seemore_label = $(".philosophy-seemore .f-bold,.philosophy-seemore .f-light");
+		var pul_label = $(".philosophy-seemore-content ul,.philosophy-seemore-content p");
+
+		var front_img = $(".philosophy-bg-img-wrapper img");
+		var back_video = $(".philosophy-bg-img-wrapper video");
+
+		if (seemore_flag == "Open") {
+			// ---  Open SeeMore Content --- //
+			wrapper_obj.animate({
+				width: "510px",
+			}, 500, function () {
+				wrapper_obj.animate({
+					height: "120px",
+				}, 500, function () {
+					pul_label.fadeIn();
+
+					seemore_flag = "Close";
+					more_label.text("less");
+				});
+			});
+
+
+			seemore_autoplay = setTimeout(function () {
+
+				front_img.fadeOut();
+				back_video.fadeIn();
+				$(".philosophy-content").addClass("flex-up");
+				$(".philosophy-content").removeClass("flex-center");
+				back_video[0].play();
+
+			}, 3500);
+
+
+
+			// --- / Open SeeMore Content --- //
+
+
+		} else {
+			// ---  Close SeeMore Content --- //
+			pul_label.fadeOut('slow', function () {
+				wrapper_obj.animate({
+					height: "0px",
+				}, 250, function () {
+					wrapper_obj.animate({
+						width: "0px",
+					}, 350);
+				});
+			});
+
+
+			seemore_flag = "Open";
+			more_label.text("more");
+			clearTimeout(seemore_autoplay);
+			front_img.fadeIn('slow');
+			back_video.fadeOut('slow');
+			$(".philosophy-content").removeClass("flex-up");
+			$(".philosophy-content").addClass("flex-center");
+			try {
+				back_video[0].stop();
+			} catch (e) {
+				console.log(e)
+			}
+			// --- /Close SeeMore Content --- //
+		}
+
+
+
+	});
+
+
+
+});

@@ -1,4 +1,8 @@
-       .Header {
+       
+nav{
+	position: fixed
+}
+.Header {
            background-color: white;
            font-family: font-light;
            font-size: 20px;

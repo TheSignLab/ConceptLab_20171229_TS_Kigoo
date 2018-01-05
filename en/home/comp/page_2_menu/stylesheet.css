@@ -1,30 +1,78 @@
-.menu-ul{
-    color: white;
-    width: 900px;
-    display: block;
-     list-style-type: none;
-    padding: 0px;
-    margin: 0 auto;
-    font-size: 22px;
+.menu-ul {
+	color: white;
+	width: 900px;
+	height: 100px;
+	display: block;
+	list-style-type: none;
+	padding: 0px;
+	margin: 0 auto;
+	font-size: 22px;
+	
+	-webkit-transition: all 2s ease-in-out;
+	-moz-transition: all 2s ease-in-out;
+	-ms-transition: all 2s ease-in-out;
+	-o-transition: all 2s ease-in-out;
+	transition: all 2s ease-in-out;
 }
 
-.menu-li{
-    display: inline-block;
-    float: left;
-   
+
+.menu-li {
+	
+	display: inline-block;
+	float: left;
+	position: relative;
+	left: 5000px;
+	
+	-webkit-transition: left 1s ease-in-out;
+	-moz-transition: left  1s ease-in-out;
+	-ms-transition: left  1s ease-in-out;
+	-o-transition: left  1s ease-in-out;
+	transition: left  1s ease-in-out;
+	
+
 }
 
-.mls{
-     
-    padding: 10px;
-    width: 120px;
+.mls {
+
+	padding: 10px;
+	width: 120px;
+
+	border-right: 2px solid white;
+	padding-left: 20px;
+
 
 }
 
-.mll{
-    
-    padding: 10px;
-    width: 120px;
-    padding-top: 20px;
+.mll {
+
+	padding: 10px;
+	width: 120px;
+	padding-bottom: 25px;
+	padding-top: 23px;
+
+	border-right: 2px solid white;
+
+}
+
+.mll:last-child {
+	border-right: 0px solid white;
+}
+
+
+.mll .f-light {
+	position: relative;
+	top: 3px;
+}
+
+.mll .f-bold {
+	position: relative;
+	top: 3px;
+	left: -5px;
+}
+
+.bb {
+
+	background-color: white;
+	width: 5px;
 
 }

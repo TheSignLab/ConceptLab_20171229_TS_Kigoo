@@ -1,0 +1,228 @@
+.philosophy-wrapper {}
+
+.philosophy-menu-wrapper {
+	width: 950px;
+	height: 250px;
+	margin: 0 auto;
+
+}
+
+
+.philosophy-menu-wrapper ul {
+	list-style-type: none;
+	padding: 0px;
+	width: 800px;
+	height: 40px;
+	margin: 0 auto;
+}
+
+.philosophy-menu-wrapper ul li {
+
+	padding: 0px;
+	padding-left: 5px;
+	padding-right: 12px;
+	margin: 5px;
+	float: left;
+	position: relative;
+	left: 0px;
+	opacity: 0.0;
+	font-family: font-regular;
+	font-size: 10pt;
+	border-right: 1px solid black;
+	-webkit-transition: left 1.275s ease-in-out;
+	-moz-transition: left 1.275s ease-in-out;
+	-ms-transition: left 1.275s ease-in-out;
+	-o-transition: left 1.275s ease-in-out;
+	transition: left 1.275s ease-in-out;
+	
+	cursor: pointer;
+}
+
+.philosophy-menu-wrapper ul li:last-child {
+	border-right: 0px solid black;
+}
+
+.philosophy-menu-wrapper ul li.pmw-active {
+	font-family: font-bold;
+}
+
+.philosophy-menu-title {
+
+	font-size: 30pt;
+	margin: 0 auto;
+	text-align: center;
+	height: 60px;
+}
+
+
+.philosophy-blank-space {
+	width: 0px;
+	height: 0px;
+}
+
+
+.id_sec_philosophy {
+	background-image: url(branding-bg-img-01-01.png);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.philosophy-bg-content-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.philosophy-bg-content {
+
+	display: block;
+	height: 100vh;
+
+}
+
+
+.philosophy-bg {
+	width: 100vw;
+	height: 100vh;
+	margin: 0 auto;
+
+}
+
+.philosophy-content {
+	width: 100vw;
+	height: 100vh;
+	margin: 50px auto;
+	position: relative;
+	top: -100vh;
+
+	padding-top: 25vh;
+
+
+}
+
+
+.flex-up {
+	padding-top: 0vh;
+	-webkit-transition: all 0.75s ease-in-out;
+	-moz-transition: all 0.75s ease-in-out;
+	-ms-transition: all 0.75s ease-in-out;
+	-o-transition: all 0.75s ease-in-out;
+	transition: all 0.75s ease-in-out;
+}
+
+.flex-center {
+	-webkit-transition: all 1.275s ease-in-out;
+	-moz-transition: all 1.275s ease-in-out;
+	-ms-transition: all 1.275s ease-in-out;
+	-o-transition: all 1.275s ease-in-out;
+	transition: all 1.275s ease-in-out;
+}
+
+.flex-down {
+	align-items: flex-end;
+	-webkit-transition: all 1.275s ease-in-out;
+	-moz-transition: all 1.275s ease-in-out;
+	-ms-transition: all 1.275s ease-in-out;
+	-o-transition: all 1.275s ease-in-out;
+	transition: all 1.275s ease-in-out;
+}
+
+.philosophy-wrapper-outside {
+	width: 1100px;
+	height: 500px;
+	margin: 0 auto;
+}
+
+
+.philosophy-bg-img-wrapper {
+	margin: 0 auto;
+	overflow: hidden;
+	height: 100vh;
+	opacity: 0.0;
+}
+
+.philosophy-bg-img-wrapper img {}
+
+.philosophy-video-wrapper {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+}
+
+.philosophy-video-wrapper {
+	align-self: flex-end;
+	box-shadow: 0 0 15px 10px #ffffff;
+}
+
+.philosophy-video-wrapper video {}
+
+.video-shadow {
+	-webkit-box-shadow: inset 0px 0px 34px 21px rgba(255, 255, 255, 1);
+	-moz-box-shadow: inset 0px 0px 34px 21px rgba(255, 255, 255, 1);
+	box-shadow: inset 0px 0px 34px 21px rgba(255, 255, 255, 1);
+}
+
+
+
+
+
+
+
+/* --------------------------------------- */
+
+/* ----- SeeMore Button :: Begin --------- */
+
+/* --------------------------------------- */
+
+.philosophy-seemore {
+	border: 1px solid black;
+	padding: 0px;
+	margin: 0 auto;
+	font-size: 15pt;
+	text-align: center;
+
+
+	width: 0px;
+	height: 0px;
+	margin-top: 30px;
+
+	cursor: pointer
+}
+
+.philosophy-seemore .f-light {
+	display: none;
+}
+
+.philosophy-seemore .f-bold {
+	display: none;
+}
+
+/* -- SeeMore Content -- */
+
+.philosophy-seemore-content {
+	text-align: center;
+	width: 0px;
+	height: 0px;
+	margin: 10px;
+	border-bottom: 1px solid black;
+	margin: 10px auto;
+}
+
+.philosophy-seemore-content p {
+	display: none;
+}
+
+.philosophy-seemore-content ul {
+	display: none;
+}
+
+.philosophy-seemore-content ul li {}
+
+/* --------------------------------------- */
+
+/* ----- SeeMore Button :: Close --------- */
+
+/* --------------------------------------- */

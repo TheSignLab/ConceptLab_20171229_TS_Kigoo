@@ -1,0 +1,43 @@
+        .Footer {
+        	color: black;
+        	
+    padding-top: 200px;
+    height: 200px;
+
+        }
+
+        .Footer-Email {
+        	font-size: 40pt;
+        	padding-top: 20px;
+        }
+
+        .Footer-Address {
+        	font-family: font-light;
+        	font-size: 15pt;
+        }
+
+        .Footer-City {
+        	font-family: font-bold;
+        	font-size: 15pt;
+        }
+
+        .Footer-HashAndSocial {
+        	padding: 10pt;
+        }
+
+        .Footer-Hash {
+        	font-family: font-light;
+        	display: inline;
+        }
+
+        .Footer-SocialList {
+        	font-family: font-light;
+        	display: inline;
+
+        }
+
+        .Footer-Drop {
+        	font-family: font-light;
+        	display: inline;
+
+        }
