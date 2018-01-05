@@ -169,7 +169,7 @@ function handler_philosophy_tooglebg(n_from, n_to) {
 
 	obj_from_img.fadeOut("slow");
 	obj_from_vid.fadeOut("slow");
-	
+
 	obj_to_vid.fadeIn("slow");
 	obj_to_img.fadeIn("slow");
 
@@ -221,29 +221,29 @@ function handler_philosophy_mouseover(targetTab) {
 	}
 	if (isTargetTab2) {
 		var typed_str = ["<i></i>",
-					 "<span class='f-light'>THE WAY WE 2</span><span class='f-bold'> PERCEIVE REALITY</span>"];
-		var content_p_str = " 22 We design brands that impact not only in their costumers but challenges the market standards with new values.";
+					 "<span class='f-light'>THE USER EXPERIENCE IN A </span><span class='f-bold'> MEANINGFUL WAY</span>"];
+		var content_p_str = "We design products, services, communication with the focus in the person and its user experience. ";
 		var nChild = 1;
 		updateTabMethod(targetTab, current_tab, prev_tab, content_p_str, typed_str, nChild);
 	}
 	if (isTargetTab3) {
 		var typed_str = ["<i></i>",
-					 "<span class='f-light'>THE WAY WE 2</span><span class='f-bold'> PERCEIVE REALITY</span>"];
-		var content_p_str = " 22 We design brands that impact not only in their costumers but challenges the market standards with new values.";
+					 "<span class='f-light'>THE ESSENCE OF A </span><span class='f-bold'> GREAT BRAND</span>"];
+		var content_p_str = "Behind a successful business is a strategy with a distinctive value proposition. We help companies, with design thinking, to create the key elements for a successful business model, a new brilliant product, a redesigned brand.";
 		var nChild = 2;
 		updateTabMethod(targetTab, current_tab, prev_tab, content_p_str, typed_str, nChild);
 	}
 	if (isTargetTab4) {
 		var typed_str = ["<i></i>",
-					 "<span class='f-light'>THE WAY WE 2</span><span class='f-bold'> PERCEIVE REALITY</span>"];
-		var content_p_str = " 22 We design brands that impact not only in their costumers but challenges the market standards with new values.";
+					 "<span class='f-light'>THE CREATION OF </span><span class='f-bold'> NEW REALITIES</span>"];
+		var content_p_str = "The prototyping of ideas is the art of showing instead of telling. Bringing life to an idea, building the space where it could become in a memorable design experience is the ultimate way to be creative.";
 		var nChild = 3;
 		updateTabMethod(targetTab, current_tab, prev_tab, content_p_str, typed_str, nChild);
 	}
 	if (isTargetTab5) {
 		var typed_str = ["<i></i>",
-					 "<span class='f-light'>THE WAY WE 2</span><span class='f-bold'> PERCEIVE REALITY</span>"];
-		var content_p_str = " 22 We design brands that impact not only in their costumers but challenges the market standards with new values.";
+					 "<span class='f-light'>THE STRATEGY TO </span><span class='f-bold'> DEFINE THE FUTURE</span>"];
+		var content_p_str = "The “Big Ideas” could capture the audience interests, influences their emotional response and inspires them to take action. Creative concept is an idea that unifies all business communications channels, campaign messages, calls to actions and audiences.";
 		var nChild = 4;
 		updateTabMethod(targetTab, current_tab, prev_tab, content_p_str, typed_str, nChild);
 	}
