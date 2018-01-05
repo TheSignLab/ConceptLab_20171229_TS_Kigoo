@@ -1,3 +1,10 @@
-  .intro-video {
-        width: 100%;
-    }
+.intro-video-wrapper {
+	margin: 0 auto;
+	margin: 0 auto;
+    width: fit-content;
+}
+
+
+.intro-video {
+	    height: 100vh;
+}
