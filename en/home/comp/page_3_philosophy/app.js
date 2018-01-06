@@ -129,14 +129,19 @@ function handler_seemore_open() {
 		});
 	});
 
-	console.log("Osd")
 	waitTimer_BgVideo = setTimeout(function () {
 
 		front_img = $(".philosophy-bg-img-wrapper img");
 		back_video = $(".philosophy-bg-img-wrapper video");
 
-		$(front_img[reg_currentTab]).fadeOut();
-		$(back_video[reg_currentTab]).fadeIn();
+		front_img.fadeOut();
+		back_video.fadeOut();
+
+		$(back_video[reg_currentTab - 1]).fadeIn("slow", function () {
+			back_video[reg_currentTab - 1].play();
+		});
+
+
 
 
 
@@ -158,8 +163,16 @@ function handler_seemore_close() {
 
 	clearTimeout(waitTimer_BgVideo);
 
-	$(front_img[reg_currentTab]).fadeIn();
-	$(back_video[reg_currentTab]).fadeOut();
+	front_img = $(".philosophy-bg-img-wrapper img");
+	back_video = $(".philosophy-bg-img-wrapper video");
+
+	front_img.fadeOut();
+	back_video.fadeOut();
+	try {
+		back_video[reg_currentTab - 1].pause();
+	} catch (e) {}
+	$(front_img[reg_currentTab - 1]).fadeIn();
+
 
 }
 // ---------------------------------------------- //
@@ -350,7 +363,7 @@ $(document).ready(function () {
 	$(".philosophy-menu-wrapper ul li").mouseover(function () {
 
 		if (key_switch_philosophyTabs) {
-	
+
 			document.getElementById("id_tab_click").play();
 			handler_philosophy_mouseover($(this));
 		}
@@ -366,6 +379,7 @@ $(document).ready(function () {
 	$("#philo-vid-id-1").fadeIn();
 
 	$(".philosophy-seemore").click(function () {
+
 		if (seemore_flag == "Open") {
 			handler_seemore_close();
 			seemore_flag = "Close";
@@ -374,6 +388,11 @@ $(document).ready(function () {
 			seemore_flag = "Open";
 		}
 	});
+
+	$(".philosophy-seemore").mouseenter(function () {
+		document.getElementById("id_seemore_hover").play();
+	})
+
 
 
 
