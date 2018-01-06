@@ -20,7 +20,7 @@ var reg_init_philosophyAnimation = false;
 // Objeto para controlar las funciones del efecto Type.JS
 var obj_typed;
 
-var TimerKey1 = 1200;
+var TimerKey1 = 500;
 
 var reg_currentTab = 0;
 
@@ -41,6 +41,8 @@ var pul_label;
 
 var front_img;
 var back_video;
+
+var waitTimer_BgVideo;
 
 /*---------------------------------------------------------------- */
 
@@ -126,21 +128,38 @@ function handler_seemore_open() {
 			more_label.text("less");
 		});
 	});
+
+	console.log("Osd")
+	waitTimer_BgVideo = setTimeout(function () {
+
+		front_img = $(".philosophy-bg-img-wrapper img");
+		back_video = $(".philosophy-bg-img-wrapper video");
+
+		$(front_img[reg_currentTab]).fadeOut();
+		$(back_video[reg_currentTab]).fadeIn();
+
+
+
+	}, 5000);
 }
 
 function handler_seemore_close() {
 
 	pul_label.fadeOut('slow', function () {
 		wrapper_obj.animate({
+			width: "0px",
+		}, 300);
+		wrapper_obj.animate({
 			height: "0px",
-		}, 250, function () {
-			wrapper_obj.animate({
-				width: "0px",
-			}, 350, function () {
-				more_label.text("more");
-			});
+		}, 350, function () {
+			more_label.text("more");
 		});
 	});
+
+	clearTimeout(waitTimer_BgVideo);
+
+	$(front_img[reg_currentTab]).fadeIn();
+	$(back_video[reg_currentTab]).fadeOut();
 
 }
 // ---------------------------------------------- //
@@ -193,7 +212,7 @@ function updateTabMethod(targetTab, current_tab, prev_tab, content_p_str, typed_
 
 	setTimeout(function () {
 		key_switch_philosophyTabs = true;
-	}, TimerKey1);
+	}, TimerKey1 / 2);
 }
 /*---------------------------------------------------------------- */
 
@@ -331,7 +350,8 @@ $(document).ready(function () {
 	$(".philosophy-menu-wrapper ul li").mouseover(function () {
 
 		if (key_switch_philosophyTabs) {
-			console.log("Updating Tab...");
+	
+			document.getElementById("id_tab_click").play();
 			handler_philosophy_mouseover($(this));
 		}
 
