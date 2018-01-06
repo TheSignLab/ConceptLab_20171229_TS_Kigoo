@@ -310,7 +310,7 @@ function handler_philosophy_mouseover(targetTab) {
 
 $(document).ready(function () {
 
-	seemore_flag = "Open";
+	seemore_flag = "Close";
 	seemore_autoplay;
 
 	wrapper_obj = $(".philosophy-seemore-content");
