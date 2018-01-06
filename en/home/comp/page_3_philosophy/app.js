@@ -161,7 +161,7 @@ function handler_seemore_close() {
 		});
 	});
 
-	clearTimeout(waitTimer_BgVideo);
+	clearTimeout(waitTimer_BgVideo); 
 
 	front_img = $(".philosophy-bg-img-wrapper img");
 	back_video = $(".philosophy-bg-img-wrapper video");
