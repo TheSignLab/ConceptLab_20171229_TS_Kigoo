@@ -20,9 +20,29 @@ var reg_init_philosophyAnimation = false;
 // Objeto para controlar las funciones del efecto Type.JS
 var obj_typed;
 
-var TimerKey1 = 1200;
+var TimerKey1 = 500;
+
+var reg_currentTab = 0;
 
 var reg_switch_philosophyTabs = "BRAND STRATEGY";
+
+var seemore_flag;
+var seemore_autoplay;
+
+var wrapper_obj;
+var p_obj;
+var ul_obj;
+var see_label;
+var more_label;
+
+var seemore_label;
+var pul_label;
+
+
+var front_img;
+var back_video;
+
+var waitTimer_BgVideo;
 
 /*---------------------------------------------------------------- */
 
@@ -86,6 +106,83 @@ function run_animation_philosophy_stage3() {
 /*---------------------------------------------------------------- */
 
 
+
+
+
+
+
+
+
+// ---------------------------------------------- //
+// SeeMore Handler Functions and Methods          //
+// ---------------------------------------------- //
+function handler_seemore_open() {
+
+	wrapper_obj.animate({
+		width: "510px",
+	}, 500, function () {
+		wrapper_obj.animate({
+			height: "120px",
+		}, 500, function () {
+			pul_label.fadeIn();
+			more_label.text("less");
+		});
+	});
+
+	waitTimer_BgVideo = setTimeout(function () {
+
+		front_img = $(".philosophy-bg-img-wrapper img");
+		back_video = $(".philosophy-bg-img-wrapper video");
+
+		front_img.fadeOut();
+		back_video.fadeOut();
+
+		$(back_video[reg_currentTab - 1]).fadeIn("slow", function () {
+			back_video[reg_currentTab - 1].play();
+		});
+
+
+
+
+
+	}, 5000);
+}
+
+function handler_seemore_close() {
+
+	pul_label.fadeOut('slow', function () {
+		wrapper_obj.animate({
+			width: "0px",
+		}, 300);
+		wrapper_obj.animate({
+			height: "0px",
+		}, 350, function () {
+			more_label.text("more");
+		});
+	});
+
+	clearTimeout(waitTimer_BgVideo); 
+
+	front_img = $(".philosophy-bg-img-wrapper img");
+	back_video = $(".philosophy-bg-img-wrapper video");
+
+	front_img.fadeOut();
+	back_video.fadeOut();
+	try {
+		back_video[reg_currentTab - 1].pause();
+	} catch (e) {}
+	$(front_img[reg_currentTab - 1]).fadeIn();
+
+
+}
+// ---------------------------------------------- //
+
+
+
+
+
+
+
 /*---------------------------------------------------------------- */
 /*----    UpdateTab  --------------------------------------------- */
 /*---------------------------------------------------------------- */
@@ -103,7 +200,12 @@ function updateTabMethod(targetTab, current_tab, prev_tab, content_p_str, typed_
 	var content_p = $(".philosophy-seemore-content p");
 	content_p.text(content_p_str);
 
-	obj_typed.stop();
+	try {
+		obj_typed.stop();
+	} catch (e) {
+
+	}
+
 	obj_typed = new Typed('#Philosphy-Title', {
 		strings: typed_str,
 		typeSpeed: 30,
@@ -113,13 +215,17 @@ function updateTabMethod(targetTab, current_tab, prev_tab, content_p_str, typed_
 	nFrom = numberTabByText(prev_tab);
 	nTo = numberTabByText(current_tab);
 
+	reg_currentTab = nTo;
+
 	handler_philosophy_tooglebg(nFrom, nTo);
+
+	handler_seemore_close();
 
 
 
 	setTimeout(function () {
 		key_switch_philosophyTabs = true;
-	}, TimerKey1);
+	}, TimerKey1 / 2);
 }
 /*---------------------------------------------------------------- */
 
@@ -130,28 +236,6 @@ function updateTabMethod(targetTab, current_tab, prev_tab, content_p_str, typed_
 /*---------------------------------------------------------------- */
 /*----    Cambio de Pestaña   ------------------------------------ */
 /*---------------------------------------------------------------- */
-
-
-$(document).ready(function () {
-
-	// Evento Mouseover en pestaña
-
-	$(".philosophy-menu-wrapper ul li").mouseover(function () {
-		handler_philosophy_mouseover($(this));
-	});
-
-	// Ocultar todos los fondos: imagens  y video.
-
-	$(".philosophy-bg-img-wrapper img").fadeOut();
-	$(".philosophy-bg-img-wrapper .video-shadow video").fadeOut();
-
-	$("#philo-img-id-1").fadeIn();
-	$("#philo-vid-id-1").fadeIn();
-
-
-});
-
-
 function handler_philosophy_tooglebg(n_from, n_to) {
 
 	var str_from_img = "#philo-img-id-" + n_from;
@@ -169,11 +253,10 @@ function handler_philosophy_tooglebg(n_from, n_to) {
 
 	obj_from_img.fadeOut("slow");
 	obj_from_vid.fadeOut("slow");
-	
+
 	obj_to_vid.fadeIn("slow");
 	obj_to_img.fadeIn("slow");
 
-	console.log(str_to_img);
 
 
 }
@@ -221,29 +304,29 @@ function handler_philosophy_mouseover(targetTab) {
 	}
 	if (isTargetTab2) {
 		var typed_str = ["<i></i>",
-					 "<span class='f-light'>THE WAY WE 2</span><span class='f-bold'> PERCEIVE REALITY</span>"];
-		var content_p_str = " 22 We design brands that impact not only in their costumers but challenges the market standards with new values.";
+					 "<span class='f-light'>THE USER EXPERIENCE IN A </span><span class='f-bold'> MEANINGFUL WAY</span>"];
+		var content_p_str = "We design products, services, communication with the focus in the person and its user experience. ";
 		var nChild = 1;
 		updateTabMethod(targetTab, current_tab, prev_tab, content_p_str, typed_str, nChild);
 	}
 	if (isTargetTab3) {
 		var typed_str = ["<i></i>",
-					 "<span class='f-light'>THE WAY WE 2</span><span class='f-bold'> PERCEIVE REALITY</span>"];
-		var content_p_str = " 22 We design brands that impact not only in their costumers but challenges the market standards with new values.";
+					 "<span class='f-light'>THE ESSENCE OF A </span><span class='f-bold'> GREAT BRAND</span>"];
+		var content_p_str = "Behind a successful business is a strategy with a distinctive value proposition. We help companies, with design thinking, to create the key elements for a successful business model, a new brilliant product, a redesigned brand.";
 		var nChild = 2;
 		updateTabMethod(targetTab, current_tab, prev_tab, content_p_str, typed_str, nChild);
 	}
 	if (isTargetTab4) {
 		var typed_str = ["<i></i>",
-					 "<span class='f-light'>THE WAY WE 2</span><span class='f-bold'> PERCEIVE REALITY</span>"];
-		var content_p_str = " 22 We design brands that impact not only in their costumers but challenges the market standards with new values.";
+					 "<span class='f-light'>THE CREATION OF </span><span class='f-bold'> NEW REALITIES</span>"];
+		var content_p_str = "The prototyping of ideas is the art of showing instead of telling. Bringing life to an idea, building the space where it could become in a memorable design experience is the ultimate way to be creative.";
 		var nChild = 3;
 		updateTabMethod(targetTab, current_tab, prev_tab, content_p_str, typed_str, nChild);
 	}
 	if (isTargetTab5) {
 		var typed_str = ["<i></i>",
-					 "<span class='f-light'>THE WAY WE 2</span><span class='f-bold'> PERCEIVE REALITY</span>"];
-		var content_p_str = " 22 We design brands that impact not only in their costumers but challenges the market standards with new values.";
+					 "<span class='f-light'>THE STRATEGY TO </span><span class='f-bold'> DEFINE THE FUTURE</span>"];
+		var content_p_str = "The “Big Ideas” could capture the audience interests, influences their emotional response and inspires them to take action. Creative concept is an idea that unifies all business communications channels, campaign messages, calls to actions and audiences.";
 		var nChild = 4;
 		updateTabMethod(targetTab, current_tab, prev_tab, content_p_str, typed_str, nChild);
 	}
@@ -257,33 +340,82 @@ function handler_philosophy_mouseover(targetTab) {
 
 
 
-
-
-
-// ---------------------------------------------- //
-// Play and Pause Handler                         //
-// ---------------------------------------------- //
-
 $(document).ready(function () {
 
-	var seemore_flag = "Open";
-	var seemore_autoplay;
+	seemore_flag = "Close";
+	seemore_autoplay;
+
+	wrapper_obj = $(".philosophy-seemore-content");
+	p_obj = $(".philosophy-seemore-content p");
+	ul_obj = $(".philosophy-seemore-content ul");
+	see_label = $(".philosophy-seemore .f-light");
+	more_label = $(".philosophy-seemore .f-bold");
+
+	seemore_label = $(".philosophy-seemore .f-bold, .philosophy-seemore .f-light");
+	pul_label = $(".philosophy-seemore-content ul, .philosophy-seemore-content p");
+
+
+	front_img = $(".philosophy-bg-img-wrapper img");
+	back_video = $(".philosophy-bg-img-wrapper video");
+
+	// Evento Mouseover en pestaña
+
+	$(".philosophy-menu-wrapper ul li").mouseover(function () {
+
+		if (key_switch_philosophyTabs) {
+
+			document.getElementById("id_tab_click").play();
+			handler_philosophy_mouseover($(this));
+		}
+
+	});
+
+	// Ocultar todos los fondos: imagens  y video.
+
+	$(".philosophy-bg-img-wrapper img").fadeOut();
+	$(".philosophy-bg-img-wrapper .video-shadow video").fadeOut();
+
+	$("#philo-img-id-1").fadeIn();
+	$("#philo-vid-id-1").fadeIn();
 
 	$(".philosophy-seemore").click(function () {
 
-		var wrapper_obj = $(".philosophy-seemore-content");
-		var p_obj = $(".philosophy-seemore-content p");
-		var ul_obj = $(".philosophy-seemore-content ul");
-		var see_label = $(".philosophy-seemore .f-light");
-		var more_label = $(".philosophy-seemore .f-bold");
-
-		var seemore_label = $(".philosophy-seemore .f-bold,.philosophy-seemore .f-light");
-		var pul_label = $(".philosophy-seemore-content ul,.philosophy-seemore-content p");
-
-		var front_img = $(".philosophy-bg-img-wrapper img");
-		var back_video = $(".philosophy-bg-img-wrapper video");
-
 		if (seemore_flag == "Open") {
+			handler_seemore_close();
+			seemore_flag = "Close";
+		} else {
+			handler_seemore_open();
+			seemore_flag = "Open";
+		}
+	});
+
+	$(".philosophy-seemore").mouseenter(function () {
+		document.getElementById("id_seemore_hover").play();
+	})
+
+
+
+
+
+});
+
+// ---------------------------------------------- //
+// SeeMore Handler                                //
+// ---------------------------------------------- //
+
+
+
+
+
+
+
+
+
+/*
+
+
+
+	if (seemore_flag == "Open") {
 			// ---  Open SeeMore Content --- //
 			wrapper_obj.animate({
 				width: "510px",
@@ -301,16 +433,18 @@ $(document).ready(function () {
 
 			seemore_autoplay = setTimeout(function () {
 
-				front_img.fadeOut();
-				back_video.fadeIn();
+				$(front_img[reg_currentTab - 1]).fadeOut();
+				$(back_video[reg_currentTab - 1]).fadeIn();
+
 				$(".philosophy-content").addClass("flex-up");
 				$(".philosophy-content").removeClass("flex-center");
-				back_video[0].play();
+
+
+			
+					back_video.play();
+			
 
 			}, 3500);
-
-
-
 			// --- / Open SeeMore Content --- //
 
 
@@ -329,13 +463,16 @@ $(document).ready(function () {
 
 			seemore_flag = "Open";
 			more_label.text("more");
+			
 			clearTimeout(seemore_autoplay);
-			front_img.fadeIn('slow');
-			back_video.fadeOut('slow');
+			
+			$(front_img[reg_currentTab - 1]).fadeOut();
+			$(back_video[reg_currentTab - 1]).fadeIn();
+			
 			$(".philosophy-content").removeClass("flex-up");
 			$(".philosophy-content").addClass("flex-center");
 			try {
-				back_video[0].stop();
+				back_video[reg_currentTab].stop();
 			} catch (e) {
 				console.log(e)
 			}
@@ -344,8 +481,5 @@ $(document).ready(function () {
 
 
 
-	});
 
-
-
-});
+*/
