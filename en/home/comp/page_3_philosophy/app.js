@@ -115,7 +115,7 @@ function run_animation_philosophy_stage3() {
 // SeeMore Handler Functions and Methods          //
 // ---------------------------------------------- //
 function handler_seemore_open() {
-	console.log("Opening SeeMore")
+
 	wrapper_obj.animate({
 		width: "510px",
 	}, 500, function () {
@@ -123,22 +123,22 @@ function handler_seemore_open() {
 			height: "120px",
 		}, 500, function () {
 			pul_label.fadeIn();
-
-			seemore_flag = "Close";
 			more_label.text("less");
 		});
 	});
 }
 
 function handler_seemore_close() {
-	console.log("Closing SeeMore")
+
 	pul_label.fadeOut('slow', function () {
 		wrapper_obj.animate({
 			height: "0px",
 		}, 250, function () {
 			wrapper_obj.animate({
 				width: "0px",
-			}, 350);
+			}, 350, function () {
+				more_label.text("more");
+			});
 		});
 	});
 
