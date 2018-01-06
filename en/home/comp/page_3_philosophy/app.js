@@ -26,6 +26,22 @@ var reg_currentTab = 0;
 
 var reg_switch_philosophyTabs = "BRAND STRATEGY";
 
+var seemore_flag;
+var seemore_autoplay;
+
+var wrapper_obj;
+var p_obj;
+var ul_obj;
+var see_label;
+var more_label;
+
+var seemore_label;
+var pul_label;
+
+
+var front_img;
+var back_video;
+
 /*---------------------------------------------------------------- */
 
 
@@ -294,32 +310,31 @@ function handler_philosophy_mouseover(targetTab) {
 
 $(document).ready(function () {
 
-	var seemore_flag = "Open";
-	var seemore_autoplay;
+	seemore_flag = "Open";
+	seemore_autoplay;
 
-	var wrapper_obj = $(".philosophy-seemore-content");
-	var p_obj = $(".philosophy-seemore-content p");
-	var ul_obj = $(".philosophy-seemore-content ul");
-	var see_label = $(".philosophy-seemore .f-light");
-	var more_label = $(".philosophy-seemore .f-bold");
+	wrapper_obj = $(".philosophy-seemore-content");
+	p_obj = $(".philosophy-seemore-content p");
+	ul_obj = $(".philosophy-seemore-content ul");
+	see_label = $(".philosophy-seemore .f-light");
+	more_label = $(".philosophy-seemore .f-bold");
 
-	var seemore_label = $(".philosophy-seemore .f-bold, .philosophy-seemore .f-light");
-	console.log("var pul_label  is created");
-	var pul_label = $(".philosophy-seemore-content ul, .philosophy-seemore-content p");
-	console.log(pul_label );
+	seemore_label = $(".philosophy-seemore .f-bold, .philosophy-seemore .f-light");
+	pul_label = $(".philosophy-seemore-content ul, .philosophy-seemore-content p");
 
-	var front_img = $(".philosophy-bg-img-wrapper img");
-	var back_video = $(".philosophy-bg-img-wrapper video");
+
+	front_img = $(".philosophy-bg-img-wrapper img");
+	back_video = $(".philosophy-bg-img-wrapper video");
 
 	// Evento Mouseover en pestaña
 
 	$(".philosophy-menu-wrapper ul li").mouseover(function () {
-		
-		if(key_switch_philosophyTabs){
+
+		if (key_switch_philosophyTabs) {
 			console.log("Updating Tab...");
 			handler_philosophy_mouseover($(this));
 		}
-		
+
 	});
 
 	// Ocultar todos los fondos: imagens  y video.
@@ -348,13 +363,6 @@ $(document).ready(function () {
 // ---------------------------------------------- //
 // SeeMore Handler                                //
 // ---------------------------------------------- //
-
-
-
-
-
-
-
 
 
 
