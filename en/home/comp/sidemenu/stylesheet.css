@@ -1,0 +1,110 @@
+.SideMenu {
+	position: fixed;
+	width: 300px;
+	right: -300px;
+	height: 100vh;
+	z-index: 1000;
+	background-color: black;
+	color: white;
+
+}
+
+
+.SideMenu-X {
+	position: relative;
+	top: 0px;
+	right: -200px;
+	padding: 20px;
+	width: 40px;
+	height: 40px;
+	margin: 0px;
+	cursor: pointer;
+
+}
+
+.SideMenu-X .x-1 {
+	position: relative;
+	top: 20px;
+	left: 1px;
+	background-color: white;
+	width: auto;
+	height: 3px;
+	
+	  -ms-transform: rotate(-45deg); /* IE 9 */
+    -webkit-transform: rotate(-45deg); /* Safari */
+    transform: rotate(-45deg);
+}
+
+.SideMenu-X .x-2 {
+	width: auto;
+	height: 3px;
+	position: relative;
+	top: 18px;
+	left: 1px;
+	background-color: white;
+	
+	  -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Safari */
+    transform: rotate(45deg);
+}
+
+.SideMenu-wrapper {
+
+	margin: 0 auto;
+	font-family: font-regular;
+
+}
+
+.SideMenu-wrapper ul {
+	list-style-type: none;
+	padding: 0px;
+	width: 130px;
+	margin: 0 auto;
+}
+
+.SideMenu-wrapper ul li {
+	text-align: left;
+	font-family: font-light;
+	font-size: 12pt;
+	padding: 5px;
+	margin: 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.SideMenu-wrapper ul li.h-bar {
+	padding-bottom: 0px;
+	padding-top: 0px;
+	padding-left: 0px;
+	margin-left: 10px;
+	width: 30px;
+	height: 1px;
+	background-color: beige;
+	text-align: left;
+}
+
+.SideMenu-wrapper ul li span {
+	text-align: left;
+	display: block;
+	text-align: left;
+	letter-spacing: 1.72;
+	line-height: 20px;
+
+}
+
+.SideMenu-wrapper ul li span.online {
+	display: inline-block;
+}
+
+.SideMenu-wrapper ul li span.online.f-bold {
+	position: relative;
+	left: -5px;
+}
+
+.SideMenu-Title {
+	padding: 20px;
+	padding-top: 0px;
+	text-align: center;
+	font-family: font-light;
+	font-size: 20pt;
+}
