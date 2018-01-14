@@ -1,35 +1,60 @@
 body {
-	padding: 0px;
-	margin: 0px;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
 }
 
 main {
 
-	width: 100%;
-	height: calc(100vh - 100px);
-	display: block;
-	overflow: hidden;
+    width: 100%;
+    height: calc(100vh - 200px);
+    display: block;
+    overflow: hidden;
 }
 
-.camera-container{
-	position: absolute;
-	top:0px;
-	width: 100%;
-	height: calc(100vh - 100px);
-	z-index: 100;
+.camera-container {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: calc(100vh - 200px);
+    z-index: 100;
+    background-color: #EFEFF4;
 }
 
-.frame-container{
-	position: absolute;
-	top:0px;
-	width: 100%;
-	height: calc(100vh - 100px);
-	z-index: 50;
+.frame-container {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: calc(100vh - 200px);
+    z-index: 150;
+    background-color: rgba(100, 200, 100, 0.5);
 }
 
 
 footer {
-	width: 100%;
-	height: 100px;
-	display: block;
+    width: 100%;
+    height: 200px;
+    display: block;
+}
+
+
+
+.frame-container-TheSignLayer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    	display: flex;
+	align-items: center;
+	justify-content: center;
+    flex-direction: column;
+}
+
+.frame-container-OutputVideoLayer {
+
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+
 }

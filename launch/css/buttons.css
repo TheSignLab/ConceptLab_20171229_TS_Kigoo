@@ -2,11 +2,22 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	
+	height: 150px;
 	background-color: #EFEFF4;
 }
 
 .button {
 	width: 33%;
 	text-align: center;
+    cursor: pointer;
+      -webkit-transition: all 0.351s ease-in-out;
+  -moz-transition: all 0.351s ease-in-out;
+  -o-transition: all 0.351s ease-in-out;
+  transition: all 0.351s ease-in-out;
 }
+
+
+.button:hover {
+transform: scale(1.2);
+}
+
