@@ -35,11 +35,18 @@ $(document).ready(function () {
 
             $(tab0).remove();
             $(tabs).append(tab0);
+            
+            updateFilter(current_tab );
 
 
             $(".effect-title").css({
                 left: "0px"
             });
+            
+            current_tab = current_tab +1;
+            if(current_tab == (number_tabs + 1)){
+                current_tab = 0;
+            }
 
 
         }
