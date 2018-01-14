@@ -1,0 +1,12 @@
+.buttons {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	background-color: #EFEFF4;
+}
+
+.button {
+	width: 33%;
+	text-align: center;
+}
