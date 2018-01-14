@@ -44,7 +44,7 @@ $(document).ready(function () {
             });
             
             current_tab = current_tab +1;
-            if(current_tab == (number_tabs + 1)){
+            if(current_tab == (number_tabs)){
                 current_tab = 0;
             }
 

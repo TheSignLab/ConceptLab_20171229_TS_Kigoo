@@ -4,30 +4,42 @@ var seriously, // the main object that holds the entire composition
     vignette, // a vignette effect
     target; // a wrapper object for our target canvas
 
-function updateFilter(current_tab){
 
 
-      
-        switch (current_tab) {
-            case 0:
-                apply_filter_1();
-                console.log("Applying Filter 1");
-                break;
-            case 1:
-                apply_filter_2();
-                console.log("Applying Filter 2");
-                break;
-            case 2:
-                apply_filter_3();
-                console.log("Applying Filter 3");
-                break;
-            case 3:
-                apply_filter_4();
-                console.log("Applying Filter 4");
-                break;
-            default:
-                apply_filter_1()
-        }
+
+var glfx_canvas,
+    glfx_texture,
+    glfx_videoraw,
+    glfx_interval;
+
+var glfx_w,
+    glfx_h;
+
+function updateFilter(current_tab) {
+
+
+    $(".frame-container-OutputVideoLayer canvas").remove();
+        clearInterval(glfx_interval)
+    
+    if(current_tab == 0){
+        apply_filter_0();
+    }else{
+        
+    }
+    
+    if(current_tab == 1){
+        apply_filter_1();
+    }
+    
+    if(current_tab == 2){
+        apply_filter_2();
+    }
+    
+    if(current_tab == 3){
+        apply_filter_3();
+    }
+
+
 
 
 
@@ -41,46 +53,138 @@ function updateFilter(current_tab){
 
 
 
-
-
-
-
-
-
-
-
-function apply_filter_1(){
+function apply_filter_0() {
 
     $(".frame-container").css({
-        backgroundColor : "rgba(100,100,200,0.5)"
+        backgroundColor: "rgba(100,100,200,0.5)"
     })
-    
+
 }
 
 
-function apply_filter_2(){
+function apply_filter_1() {
 
-    $(".frame-container").css({
-        backgroundColor : "rgba(100,200,200,0.5)"
-    })
+    // Check WebGL Support
+        try {
+            var canvas = fx.canvas();
+        } catch (e) {
+            alert(e);
+            return;
+        }
     
+    // Get Dimensions
+    glfx_w = $($(".frame-container-OutputVideoLayer")[0]).innerWidth();
+    glfx_h =$($(".frame-container-OutputVideoLayer")[0]).innerHeight();
+    
+    // Construct GLFX Objects
+        glfx_canvas = fx.canvas();
+        glfx_videoraw = document.getElementById('id_video_raw_camera');
+        glfx_texture = glfx_canvas.texture(glfx_videoraw);
+
+    
+    // Append Canvas
+    $(".frame-container-OutputVideoLayer")[0].appendChild(glfx_canvas);
+    
+    //Interval
+    glfx_interval = setInterval(function () {
+        glfx_texture.loadContentsOf(glfx_videoraw);
+        glfx_canvas.draw( glfx_texture,glfx_w, glfx_h).dotScreen(glfx_w, glfx_h, 1.19, 13.48).update();
+    }, 10);
+    
+    glfx_videoraw.play();
+
 }
 
-function apply_filter_3(){
+function destroy_filter_1(){
+    // Append Canvas
+    try{
+        $(".frame-container-OutputVideoLayer canvas").remove();
+        clearInterval(glfx_interval)
+    }catch(e){
+        console.log(e)
+    }
 
-    $(".frame-container").css({
-        backgroundColor : "rgba(200,200,200,0.5)"
-    })
-    
 }
 
-function apply_filter_4(){
 
-    $(".frame-container").css({
-        backgroundColor : "rgba(200,100,200,0.5)"
-    })
+
+function apply_filter_2() {
+
+       // Check WebGL Support
+        try {
+            var canvas = fx.canvas();
+        } catch (e) {
+            alert(e);
+            return;
+        }
     
+    // Get Dimensions
+    glfx_w = $($(".frame-container-OutputVideoLayer")[0]).innerWidth();
+    glfx_h =$($(".frame-container-OutputVideoLayer")[0]).innerHeight();
+    
+    // Construct GLFX Objects
+        glfx_canvas = fx.canvas();
+        glfx_videoraw = document.getElementById('id_video_raw_camera');
+        glfx_texture = glfx_canvas.texture(glfx_videoraw);
+
+    
+    // Append Canvas
+    $(".frame-container-OutputVideoLayer")[0].appendChild(glfx_canvas);
+    
+    //Interval
+     glfx_interval =  setInterval(function () {
+        glfx_texture.loadContentsOf(glfx_videoraw);
+        glfx_canvas.draw( glfx_texture,glfx_w, glfx_h).colorHalftone(320, 239.5, 1.35, 13.69).update();
+    }, 10);
+    
+    glfx_videoraw.play();
 }
+
+
+
+
+
+
+function apply_filter_3() {
+
+       // Check WebGL Support
+        try {
+            var canvas = fx.canvas();
+        } catch (e) {
+            alert(e);
+            return;
+        }
+    
+    // Get Dimensions
+    glfx_w = $($(".frame-container-OutputVideoLayer")[0]).innerWidth();
+    glfx_h =$($(".frame-container-OutputVideoLayer")[0]).innerHeight();
+    
+    // Construct GLFX Objects
+        glfx_canvas = fx.canvas();
+        glfx_videoraw = document.getElementById('id_video_raw_camera');
+        glfx_texture = glfx_canvas.texture(glfx_videoraw);
+
+    
+    // Append Canvas
+    $(".frame-container-OutputVideoLayer")[0].appendChild(glfx_canvas);
+    
+    //Interval
+     glfx_interval =  setInterval(function () {
+        glfx_texture.loadContentsOf(glfx_videoraw);
+        glfx_canvas.draw( glfx_texture,glfx_w, glfx_h).lensBlur(18, 1, 1.96841).update();
+    }, 10);
+    
+    glfx_videoraw.play();
+}
+
+
+
+
+
+
+
+
+
 
 
 
