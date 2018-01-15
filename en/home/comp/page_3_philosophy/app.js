@@ -189,9 +189,10 @@ function handler_seemore_close() {
 function updateTabMethod(targetTab, current_tab, prev_tab, content_p_str, typed_str) {
 	key_switch_philosophyTabs = false;
 	reg_switch_philosophyTabs = current_tab;
-
+	
+	$(".pmw-active").removeClass(ts_bg_c);
 	$(".pmw-active").removeClass("pmw-active");
-	$("." + ts_bg_c).removeClass(ts_bg_c);
+	
 
 	targetTab.addClass("pmw-active");
 	targetTab.addClass(ts_bg_c);

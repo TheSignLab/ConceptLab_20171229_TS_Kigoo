@@ -1,8 +1,8 @@
         .Footer {
         	color: black;
-        	
-    padding-top: 200px;
-    height: 200px;
+
+        	padding-top: 200px;
+        	height: 270px;
 
         }
 
@@ -22,7 +22,8 @@
         }
 
         .Footer-HashAndSocial {
-        	padding: 10pt;
+        	padding: 20pt;
+        	font-size: 15pt;
         }
 
         .Footer-Hash {
@@ -39,5 +40,46 @@
         .Footer-Drop {
         	font-family: font-light;
         	display: inline;
+        	cursor: pointer;
+        	z-index: 10;
+        }
 
+.Footer-Drop i{
+	opacity: 0;
+}
+
+        .Footer-Drop i:nth-child(1) {
+        	position: relative;
+        	left: 0px;
+        	z-index: 10;opacity: 1;
+        }
+
+        .Footer-Drop i:nth-child(2) {
+        	position: relative;
+        	left: -16px;
+        	z-index: 9;
+        }
+
+        .Footer-Drop i:nth-child(3) {
+        	position: relative;
+        	left: -32px;
+        	z-index: 8;
+        }
+
+        .Footer-Drop i:nth-child(4) {
+        	position: relative;
+        	left: -48px;
+        	z-index: 7;
+        }
+
+        .Footer-Drop i:nth-child(5) {
+        	position: relative;
+        	left: -64px;
+        	z-index: 5;
+        }
+
+        .Footer-Drop i:nth-child(6) {
+        	position: relative;
+        	left: -80px;
+        	z-index: 4;
         }
