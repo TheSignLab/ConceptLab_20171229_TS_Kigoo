@@ -32,7 +32,7 @@ var glfx_w,
 function updateFilter(current_tab) {
 
 
-    $(".frame-container-OutputVideoLayer canvas").remove();
+    $(".frame-container-BackLayer canvas").remove();
         clearInterval(glfx_interval)
     
     if(current_tab == 0){
@@ -87,8 +87,8 @@ function apply_filter_1() {
         }
     
     // Get Dimensions
-    glfx_w = $($(".frame-container-OutputVideoLayer")[0]).innerWidth();
-    glfx_h =$($(".frame-container-OutputVideoLayer")[0]).innerHeight();
+    glfx_w = $($(".frame-container-BackLayer")[0]).innerWidth();
+    glfx_h =$($(".frame-container-BackLayer")[0]).innerHeight();
     
     // Construct GLFX Objects
         glfx_canvas = fx.canvas();

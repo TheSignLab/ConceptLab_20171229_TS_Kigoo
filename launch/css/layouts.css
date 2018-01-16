@@ -7,7 +7,7 @@ body {
 main {
 
     width: 100%;
-    height: calc(100vh - 200px);
+    height: calc(100vh - 150px);
     display: block;
     overflow: hidden;
 }
@@ -16,7 +16,7 @@ main {
     position: absolute;
     top: 0px;
     width: 100%;
-    height: calc(100vh - 200px);
+    height: calc(100vh - 150px);
     z-index: 100;
     background-color: #EFEFF4;
 }
@@ -25,15 +25,16 @@ main {
     position: absolute;
     top: 0px;
     width: 100%;
-    height: calc(100vh - 200px);
+    height: calc(100vh - 150px);
     z-index: 150;
-    background-color: rgba(100, 200, 100, 0.5);
+    background-color: rgba(100, 200, 100, 0.0);
+    overflow: hidden;
 }
 
 
 footer {
     width: 100%;
-    height: 200px;
+    height: 150px;
     display: block;
 }
 
@@ -44,9 +45,9 @@ footer {
     height: 100%;
     position: absolute;
     top: 0px;
-    	display: flex;
-	align-items: center;
-	justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
 }
 
@@ -58,3 +59,41 @@ footer {
     top: 0px;
 
 }
+
+
+.frame-container-FrontLayer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+
+
+}
+
+
+
+.frame-container-BackLayer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+   
+
+}
+
+
+
+
+
+.frame-container-FrontLayer video {
+    position: absolute;
+    top: 0;
+
+    height: 100%;
+
+    -webkit-mask-image: url('../images/dots_Mesa%20de%20trabajo%201.png');
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    -webkit-mask-position: left;
+}
+

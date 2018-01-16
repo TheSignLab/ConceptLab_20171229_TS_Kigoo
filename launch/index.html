@@ -16,8 +16,10 @@
 
     <link rel="stylesheet" href="css/layouts.css">
     <link rel="stylesheet" href="css/fonts.css">
+     <link rel="stylesheet" href="css/effects.css">
+     <link rel="stylesheet" href="css/buttons.css">
     <!--
-    <link rel="stylesheet" href="css/buttons.css">
+   
     <link rel="stylesheet" href="css/effects.css">
     <link rel="stylesheet" href="css/modals.css">
     -->
@@ -35,22 +37,25 @@
         <div class="container">
 
             <div class="frame-container">
-
-                <div class="frame-container-FrontLayer">
-                    <div id="id_sign_mask-1"></div>
-                    <div id="id_sign_mask-2"></div>
-                </div>
-
-                <div class="frame-container-BackLayer">
-
-                </div>
-
+                
                 <div class="frame-container-RawLayer">
                     <video autoplay nocontrols height="100%">
                     <source src="example_video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                     </video>
                 </div>
+
+                <div class="frame-container-BackLayer">
+                    
+                </div>
+
+                <div class="frame-container-FrontLayer">
+                    <video autoplay nocontrols height="100%">
+                    <source src="example_video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                    </video>
+                </div>
+
             </div>
 
         </div>
@@ -59,12 +64,16 @@
 
 
     <footer>
-
+        
         <div class="effect-titles">
-            <div class="effect-title"> <span> Filtro 1 : </span></div>
-            <div class="effect-title"> <span> Filtro 2 : </span></div>
-            <div class="effect-title"> <span> Filtro 3 : </span></div>
-            <div class="effect-title"> <span> Filtro 4 : </span></div>
+            <div class="effect-title"> <div class="effect-title-txt"><span class="slidesjs-previous slidesjs-navigation">  &#10094; </span><span > Filtro 1 : </span><span class="slidesjs-next slidesjs-navigation"> &#10095;</span></div></div>
+            <div class="effect-title"> <div class="effect-title-txt"><span class="slidesjs-previous slidesjs-navigation">  &#10094; </span><span > Filtro 2 : </span><span class="slidesjs-next slidesjs-navigation"> &#10095;</span></div></div>
+            <div class="effect-title"> <div class="effect-title-txt"><span class="slidesjs-previous slidesjs-navigation">  &#10094; </span><span > Filtro 3 : </span><span class="slidesjs-next slidesjs-navigation"> &#10095;</span></div></div>
+            <div class="effect-title"> <div class="effect-title-txt"><span class="slidesjs-previous slidesjs-navigation">  &#10094; </span><span > Filtro 4 : </span><span class="slidesjs-next slidesjs-navigation"> &#10095;</span></div></div>
+            <div class="effect-title"> <div class="effect-title-txt"><span class="slidesjs-previous slidesjs-navigation">  &#10094; </span><span > Filtro 5 : </span><span class="slidesjs-next slidesjs-navigation"> &#10095;</span></div></div>
+
+
+
         </div>
 
         <div class="buttons">
@@ -79,6 +88,9 @@
     <script type="text/javascript" src="js/simple-jQuery-slider-master/dist/package/jquery.simpleslider.package.min.js"></script>
 
     <script src="js/effects/glfx.js"></script>
+    <script src="js/jquery.slides.min.js"></script>
+    <script src="js/ui_ux.js"></script>
+    
     <!--
     <script src="js/main.js"></script>
     <script src="js/fb_api.js"></script>
