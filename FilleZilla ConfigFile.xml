@@ -2,11 +2,11 @@
 <FileZilla3> 
     <Servers> 
         <Server> 
-            <Host>jlmayorga.com.co</Host> 
+            <Host>23.229.211.137</Host> 
             <Port>21</Port> 
             <Protocol>0</Protocol> 
             <Type>0</Type> 
-            <User>thesign@jlmayorga.com.co@jlmayorga.com.co</User>
+            <User>thesign@jlmayorga.com.co</User>
             <Logontype>2</Logontype> 
             <TimezoneOffset>0</TimezoneOffset> 
             <PasvMode>MODE_DEFAULT</PasvMode> 
