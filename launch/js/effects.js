@@ -1,3 +1,17 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // declare our variables
 var seriously, // the main object that holds the entire composition
     colorbars, // a wrapper object for our source image

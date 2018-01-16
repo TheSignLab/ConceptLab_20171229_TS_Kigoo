@@ -2,60 +2,62 @@
 <html>
 
 <head>
-
     <meta charset="utf-8">
     <meta name="description" content="TheSignLab Launch">
-    <meta name="viewport" content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' >
+    <meta name="viewport" content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
     <meta itemprop="description" content="TheSignLab Co Launch">
     <meta itemprop="image" content="images/thesignlabco-icon-192x192.png">
     <meta itemprop="name" content="TheSignLab Co Launch App">
     <meta name="mobile-web-app-capable" content="yes">
     <meta id="theme-color" name="theme-color" content="#ffffff">
-
     <base target="_blank">
-
     <title>TheSignLab Launch App</title>
-
     <link rel="icon" sizes="192x192" href="images/thesignlabco-icon-192x192.png">
 
     <link rel="stylesheet" href="css/layouts.css">
     <link rel="stylesheet" href="css/fonts.css">
+    <!--
     <link rel="stylesheet" href="css/buttons.css">
     <link rel="stylesheet" href="css/effects.css">
     <link rel="stylesheet" href="css/modals.css">
-
+    -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-
-
-
-
-
 </head>
 
+
+
+
+
+
 <body>
-    
+
     <main>
         <div class="container">
 
             <div class="frame-container">
-                <div class="frame-container-TheSignLayer">
+
+                <div class="frame-container-FrontLayer">
                     <div id="id_sign_mask-1"></div>
                     <div id="id_sign_mask-2"></div>
                 </div>
-                <div class="frame-container-OutputVideoLayer">
-                    <!-- <canvas id="id_video_output" width="100%" height="100%"></canvas> -->
-                </div>
-            </div>
 
-            <div class="camera-container">
-                <video autoplay id="id_video_raw_camera" width="100%" height="100%"></video>
+                <div class="frame-container-BackLayer">
+
+                </div>
+
+                <div class="frame-container-RawLayer">
+                    <video autoplay nocontrols height="100%">
+                    <source src="example_video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                    </video>
+                </div>
             </div>
 
         </div>
     </main>
 
-    
-    
+
+
     <footer>
 
         <div class="effect-titles">
@@ -77,14 +79,14 @@
     <script type="text/javascript" src="js/simple-jQuery-slider-master/dist/package/jquery.simpleslider.package.min.js"></script>
 
     <script src="js/effects/glfx.js"></script>
-
+    <!--
     <script src="js/main.js"></script>
     <script src="js/fb_api.js"></script>
     <script src="js/ajax_api.js"></script>
     <script src="js/ui_ux.js"></script>
     <script src="js/video_handler.js"></script>
     <script src="js/effects.js"></script>
-
+  -->
 
 
 
