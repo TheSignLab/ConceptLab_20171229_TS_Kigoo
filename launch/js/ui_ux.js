@@ -55,8 +55,39 @@ function convertCanvasToImage(canvas) {
 
 
 
+function getRoundedCanvas(sourceCanvas) {
+    
+    var canvas = document.createElement('canvas');
+    var context = canvas.getContext('2d');
+    var width = sourceCanvas.width;
+    var height = sourceCanvas.height;
+    canvas.width = width;
+    canvas.height = height;
+    context.beginPath();
+    context.arc(width / 2, height / 2, Math.min(width, height) / 2, 0, 2 * Math.PI);
+    context.strokeStyle = 'rgba(0,0,0,0)';
+    context.stroke();
+    context.clip();
+    context.drawImage(sourceCanvas, 0, 0, width, height);
+    SnapImg2.src = canvas.toDataURL();
+    
+    
+    
+    
+    
+    return canvas;
+    
+}
 
-
+function drawDataURIOnCanvas(strDataURI, canvas) {
+    "use strict";
+    var img = new window.Image();
+    img.addEventListener("load", function () {
+        canvas.getContext("2d").drawImage(img, 0, 0);
+        canvas = getRoundedCanvas(canvas);
+    });
+    img.setAttribute("src", strDataURI);
+};
 
 
 
@@ -93,25 +124,16 @@ function uiMethod_TakeSnap() {
     $("#imgTarget")[0].src = img2.src;
 
     var canvas = document.getElementById('newCanvas');
-
-    function drawDataURIOnCanvas(strDataURI, canvas) {
-        "use strict";
-        var img = new window.Image();
-        img.addEventListener("load", function () {
-            canvas.getContext("2d").drawImage(img, 0, 0);
-        });
-        img.setAttribute("src", strDataURI);
-    }
-
+    canvas.width = $("main").width();
+    canvas.height = $("main").height();
     drawDataURIOnCanvas(img2.src, canvas);
-     SnapImg2.src = canvas.toDataURL("image/png");
-    /*
-    setTimeout(function(){ canvas.toBlob(function (blob) {
-        saveAs(blob, "pretty image.png");
-    });},1000);
-   */
+
+
 
 }
+
+
+
 
 function cloneCanvas(oldCanvas) {
 
