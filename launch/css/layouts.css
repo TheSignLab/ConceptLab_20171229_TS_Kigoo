@@ -69,12 +69,11 @@ main {
     width: 100%;
     height: 100%;
     z-index: 1000000;
-    background-color: rgba(200, 100, 40, 0.5)
+    background-color: rgba(200, 100, 40, 0.0)
 }
 
 
-.front-video {
-    height: 70%;
+.scanvas{
     -webkit-mask-image: url('../images/dots_Mesa%20de%20trabajo%201.png');
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-size: contain;
@@ -85,6 +84,21 @@ main {
 
 
 
+.front-canvas{
+    opacity: 0.8;
+     -webkit-mask-image: url('../images/dots_Mesa%20de%20trabajo%201.png');
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    -webkit-mask-position: center;
+    
+}
+
+#canvast,#canvast2{
+     width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0px;
+}
 
 
 .seemore {

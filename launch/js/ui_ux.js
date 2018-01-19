@@ -29,16 +29,32 @@ var btnQuieroSaberMas = $($(".button.right .txt")[0]);
 
 var videoBack = document.querySelector('.ui-layer.back-video video');
 var videoFront = document.querySelector('.ui-layer.front-video video');
-
-var canvasOutput = document.querySelector('.ui-layer.output-canvas canvas');
-
+var canvasOutput;
 
 
 
 
 
+// Converts image to canvas; returns new canvas element
+function convertImageToCanvas(image) {
+    var canvas = document.createElement("canvas");
+    canvas.width = image.width;
+    canvas.height = image.height;
+    canvas.getContext("2d").drawImage(image, 0, 0);
 
-var context = canvasOutput.getContext('2d');
+    return canvas;
+}
+
+// Converts canvas to an image
+function convertCanvasToImage(canvas) {
+    var image = new Image();
+    image.src = canvas.toDataURL("image/png");
+    return image;
+}
+
+
+
+
 var w, h, ratio;
 videoFront.addEventListener('loadedmetadata', function () {
     ratio = videoFront.videoWidth / videoFront.videoHeight;
@@ -49,26 +65,68 @@ videoFront.addEventListener('loadedmetadata', function () {
 }, false);
 
 
-
+var SnapImg1, SnapImg2;
 
 function uiMethod_TakeSnap() {
-    $(canvasOutput).show();
-    // Draw the path that is going to be clipped
-    context.beginPath();
-    context.arc(300, 125, 50, 0, 2 * Math.PI, false);
-    // Don't stroke or fill it
 
-    // Now clip() the canvas
-    context.clip();
+    glfx_paused = true;
 
-    context.fillRect(0, 0, w, h);
-    context.drawImage(videoFront, 0, 0, w, h);
-    console.log("Snaped")
+
+    var img = new Image();
+    img.src = glfx_canvas.update().toDataURL();
+
+
+    var img2 = new Image();
+    img2.src = glfx_canvas2.update().toDataURL();
+
+
+    SnapImg1 = img;
+    SnapImg2 = img2;
+
+
+    $("#imgTarget").attr("src", img2.src);
+
+    var ctx = document.getElementById('newCanvas').getContext('2d');
+    var img = new Image();
+    var ww = $("main").width();
+    var hh = $("main").height();
+    img.src = img2.src;
+    img.onload = function () {
+        ctx.drawImage(img, 0, 0,100,100);
+    }
+
+
+    /*
+        glfx_canvas.toBlob(function (blob) {
+            saveAs(blob, "pretty image.png");
+        });
+    */
+
+
+
+
+
+}
+
+function cloneCanvas(oldCanvas) {
+
+    //create a new canvas
+    var newCanvas = document.createElement('canvas');
+    var context = newCanvas.getContext('2d');
+
+    //set dimensions
+    newCanvas.width = oldCanvas.width;
+    newCanvas.height = oldCanvas.height;
+
+    //apply the old canvas to the new one
+    context.drawImage(oldCanvas, 0, 0);
+
+    //return the new canvas
+    return newCanvas;
 }
 
 
 function uiMethod_DeleteSnap() {
-    $(canvasOutput).hide();
 
 }
 
@@ -90,6 +148,11 @@ function uiControl_go2Init() {
     uiShareControl.hide();
     uiContactControl.hide();
     uiMethod_DeleteSnap();
+
+    glfx_paused = false;
+
+
+
 }
 
 function uiControl_go2Fx() {
@@ -153,35 +216,45 @@ function uiControl_SwitchCamera() {}
 
 function uiControl_ApplyFx1() {
     updateFilter(1);
-    uiControl_go2Snap();
+    uiControl_go2Init()
 }
 
 function uiControl_ApplyFx2() {
     updateFilter(2);
-    uiControl_go2Snap();
+    uiControl_go2Init()
 }
 
 function uiControl_ApplyFx3() {
     updateFilter(3);
-    uiControl_go2Snap();
+    uiControl_go2Init()
 }
 
 function uiControl_ApplyFx4() {
     updateFilter(4);
-    uiControl_go2Snap();
+    uiControl_go2Init()
 }
 
 function uiControl_DownloadPic() {
+
     var link = document.getElementById('link');
-    link.setAttribute('download', 'TheSignLabCo.png');
-    link.setAttribute('href', canvasOutput.toDataURL("image/png").replace("image/png", "image/octet-stream"));
+    link.setAttribute('download', 'TheSignLabCo1.png');
+    link.setAttribute('href', SnapImg1.src);
+    link.click();
+    link.setAttribute('download', 'TheSignLabCo2.png');
+    link.setAttribute('href', SnapImg2.src);
     link.click();
 }
 
 uiControl_go2Init();
 
 btnClose.click(function () {
-    uiControl_go2Init()
+    uiControl_go2Init();
+
+
+    regFitler = 10000;
+
+    updateFilter(1)
+
 });
 
 btnSelectFx.click(function () {
@@ -229,24 +302,21 @@ btnQuieroSaberMas.click(function () {
 
 
 
-
-
-
-$("#id_input_name").click(function(){
+$("#id_input_name").click(function () {
     $(".wbox-row-c1").removeClass("wbox-active");
     $($(".wbox-row-c1")[0]).addClass("wbox-active");
 })
-$("#id_input_email").click(function(){
-     $(".wbox-row-c1").removeClass("wbox-active");
+$("#id_input_email").click(function () {
+    $(".wbox-row-c1").removeClass("wbox-active");
     $($(".wbox-row-c1")[1]).addClass("wbox-active");
 })
 
 
 
 
-
-
-
+$("#id_btn_share_fb").click(function () {
+    $(".fb-share-button")[0].click();
+});
 
 
 
@@ -299,3 +369,15 @@ $(function () {
 
                 </div>
 */
+
+
+
+
+
+
+
+
+
+function update_mask() {
+
+};
