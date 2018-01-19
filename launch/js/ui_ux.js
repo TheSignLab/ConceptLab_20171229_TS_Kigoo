@@ -55,6 +55,11 @@ function convertCanvasToImage(canvas) {
 
 
 
+
+
+
+
+
 var w, h, ratio;
 videoFront.addEventListener('loadedmetadata', function () {
     ratio = videoFront.videoWidth / videoFront.videoHeight;
@@ -66,6 +71,7 @@ videoFront.addEventListener('loadedmetadata', function () {
 
 
 var SnapImg1, SnapImg2;
+var outCanvasFx;
 
 function uiMethod_TakeSnap() {
 
@@ -84,27 +90,26 @@ function uiMethod_TakeSnap() {
     SnapImg2 = img2;
 
 
-    $("#imgTarget").attr("src", img2.src);
+    $("#imgTarget")[0].src = img2.src;
 
-    var ctx = document.getElementById('newCanvas').getContext('2d');
-    var img = new Image();
-    var ww = $("main").width();
-    var hh = $("main").height();
-    img.src = img2.src;
-    img.onload = function () {
-        ctx.drawImage(img, 0, 0,100,100);
+    var canvas = document.getElementById('newCanvas');
+
+    function drawDataURIOnCanvas(strDataURI, canvas) {
+        "use strict";
+        var img = new window.Image();
+        img.addEventListener("load", function () {
+            canvas.getContext("2d").drawImage(img, 0, 0);
+        });
+        img.setAttribute("src", strDataURI);
     }
 
-
+    drawDataURIOnCanvas(img2.src, canvas);
+     SnapImg2.src = canvas.toDataURL("image/png");
     /*
-        glfx_canvas.toBlob(function (blob) {
-            saveAs(blob, "pretty image.png");
-        });
-    */
-
-
-
-
+    setTimeout(function(){ canvas.toBlob(function (blob) {
+        saveAs(blob, "pretty image.png");
+    });},1000);
+   */
 
 }
 

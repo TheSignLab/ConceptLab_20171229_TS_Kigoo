@@ -161,7 +161,7 @@ $(document).ready(function () {
     
     glfx_videoraw2.play();
     
-    ctx2 = glfx_canvas2.getContext("webgl", {preserveDrawingBuffer: true});
+    ctx2 = glfx_canvas2.getContext("webgl", {preserveDrawingBuffer: true,drawingBufferWidth:250,drawingBufferHeight:250});
     
 
 
