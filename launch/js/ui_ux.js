@@ -56,72 +56,81 @@ function convertCanvasToImage(canvas) {
 
 
 function getRoundedCanvas(sourceCanvas) {
-    
+
     var canvas1 = document.createElement('canvas');
     var context1 = canvas1.getContext('2d');
     var width = sourceCanvas.width;
     var height = sourceCanvas.height;
     canvas1.width = width;
     canvas1.height = height;
-    
+
     var canvas2 = document.createElement('canvas');
     var context2 = canvas2.getContext('2d');
     var width = sourceCanvas.width;
     var height = sourceCanvas.height;
     canvas2.width = width;
     canvas2.height = height;
-    
-    d = 0.75*height/4;
-    
+
+    d = 0.75 * height / 4;
+
     eps = 0;
-    
-    P0_x = width/2;
-    P1_x = width/2;
-    
+
+    P0_x = width / 2;
+    P1_x = width / 2;
+
     P0_y = d + eps;
     P1_y = height - (d + eps);
-    
-    
+
+
     context1.beginPath();
-    context1.arc(P0_x,  P0_y, d , 0, 2 * Math.PI);
+    context1.arc(P0_x, P0_y, d, 0, 2 * Math.PI);
     context1.strokeStyle = 'rgba(0,0,0,0.51)';
     context1.stroke();
-    
+
     context2.beginPath();
-    context2.arc(P1_x,  P1_y, d , 0, 2 * Math.PI);
+    context2.arc(P1_x, P1_y, d, 0, 2 * Math.PI);
     context2.strokeStyle = 'rgba(0,0,0,0.51)';
     context2.stroke();
-    
-    
+
+
     context1.clip();
     context2.clip();
-    
-    
+
+
     context1.drawImage(sourceCanvas, 0, 0, width, height);
     context2.drawImage(sourceCanvas, 0, 0, width, height);
-    
-    
-     var canvas3 = document.createElement('canvas');
+
+
+    var canvas3 = document.createElement('canvas');
     var context3 = canvas3.getContext('2d');
     var width = sourceCanvas.width;
     var height = sourceCanvas.height;
     canvas3.width = width;
     canvas3.height = height;
-    
-     context3.drawImage(sourceCanvas, 0, 0,width, height);
-     context3.drawImage(canvas1, 0, 0,canvas1.width, canvas1.height);
-     context3.drawImage(canvas2, 0,0,canvas2.width, canvas2.height);
-    
+
+    var backCanvas = document.createElement('canvas');
+    var context4 = backCanvas.getContext('2d');
+    var width4 = sourceCanvas.width;
+    var height4 = sourceCanvas.height;
+    backCanvas.width = width4;
+    backCanvas.height = height4;
+    context4.drawImage(SnapImg1, 0, 0, width4, height4);
+
+
+    context3.drawImage(backCanvas, 0, 0, width, height);
+    context3.drawImage(canvas1, 0, 0, canvas1.width, canvas1.height);
+    context3.drawImage(canvas2, 0, 0, canvas2.width, canvas2.height);
+
     //context3.clip();
-    
+
     SnapImg2.src = canvas3.toDataURL();
-    
-    
-    
-    
-    
+
+
+
+
+
     return canvas2;
-    
+
 }
 
 function drawDataURIOnCanvas(strDataURI, canvas) {
@@ -266,6 +275,8 @@ function uiControl_go2Share() {
     uiShareControl.show();
     uiContactControl.hide();
     uiMethod_DeleteSnap();
+
+    uiMehtod_Share();
 }
 
 function uiControl_go2Contact() {
@@ -453,3 +464,21 @@ $(function () {
 function update_mask() {
 
 };
+
+
+
+function uiMehtod_Share() {
+    
+    var url = 'hidden.php',
+        data = $(SnapImg2).attr('src');
+
+    $.ajax({
+        type: "POST",
+        url: url,
+        dataType: 'text',
+        data: {
+            b64String: data
+        }
+    });
+
+}
