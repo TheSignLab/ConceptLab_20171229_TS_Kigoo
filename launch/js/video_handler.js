@@ -1,3 +1,7 @@
+
+
+
+/*
 // Grab elements, create settings, etc.
 var video = document.getElementById('id_video_raw_camera');
 
@@ -10,3 +14,4 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         
     });
 }
+*/

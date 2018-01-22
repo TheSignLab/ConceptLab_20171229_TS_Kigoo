@@ -11,28 +11,22 @@ $(document).ready(function () {
 		
 		var obj_drop = $(".Footer-Drop i");
 		$(obj_drop[0]).animate({
-			left: '0px',
-			opacity: '1'
+			left: '0px'
 		}, "slow");
 		$(obj_drop[1]).animate({
-			left: '0px',
-			opacity: '1'
+			left: '0px'
 		}, "slow");
 		$(obj_drop[2]).animate({
-			left: '0px',
-			opacity: '1'
+			left: '0px'
 		}, "slow");
 		$(obj_drop[3]).animate({
-			left: '0px',
-			opacity: '1'
+			left: '0px'
 		}, "slow");
 		$(obj_drop[4]).animate({
-			left: '0px',
-			opacity: '1'
+			left: '0px'
 		}, "slow");
 		$(obj_drop[5]).animate({
-			left: '0px',
-			opacity: '1'
+			left: '0px'
 		}, "slow");
 	}
 	
@@ -41,28 +35,22 @@ $(document).ready(function () {
 		var obj_drop = $(".Footer-Drop i");
 
 		$(obj_drop[0]).animate({
-			left: '0px',
-			opacity: '1'
+			left: '0px'
 		}, "slow");
 		$(obj_drop[1]).animate({
-			left: '-16px',
-			opacity: '0'
+			left: '-16px'
 		}, "slow");
 		$(obj_drop[2]).animate({
-			left: '-32px',
-			opacity: '1'
+			left: '-32px'
 		}, "slow");
 		$(obj_drop[3]).animate({
-			left: '-48px',
-			opacity: '1'
+			left: '-48px'
 		}, "slow");
 		$(obj_drop[4]).animate({
-			left: '-64px',
-			opacity: '1'
+			left: '-64px'
 		}, "slow");
 		$(obj_drop[5]).animate({
-			left: '-80px',
-			opacity: '1'
+			left: '-80px'
 		}, "slow");
 		
 	}
